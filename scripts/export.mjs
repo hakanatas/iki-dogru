@@ -67,7 +67,7 @@ async function exportFormat(browser, format, ffmpeg) {
   const total = f1 - f0;
   const enc = spawn(ffmpeg, ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', FRAMES === 'jpeg' ? 'mjpeg' : 'png', '-i', '-',
     '-c:v', 'libx264', '-preset', PRESET, '-crf', CRF, '-pix_fmt', 'yuv420p', '-r', String(FPS), '-movflags', '+faststart',
-    '-metadata', 'title=İki Doğru — Yapılar ve Görünümleri', mp4], { stdio: ['pipe', 'inherit', 'inherit'] });
+    '-metadata', 'title=İki Doğru — İki doğrunun birbirine göre durumu', mp4], { stdio: ['pipe', 'inherit', 'inherit'] });
   const write = (buf) => new Promise((res) => (enc.stdin.write(buf) ? res() : enc.stdin.once('drain', res)));
 
   const t0 = Date.now();
